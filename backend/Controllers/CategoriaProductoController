@@ -1,0 +1,33 @@
+using Microsoft.AspNetCore.Mvc;
+using backend.connection;
+
+namespace backend.Controllers;
+
+[ApiaController]
+[Route("[controller]")]
+public class CategoriaProductoController : ContrllerBase
+{
+    private readonly IConfiguration_configuration;
+    private readonly string connectionString;
+
+    public CategoriaProductoController(Iconfiguration configuration)
+    {
+        _configuration = configuration;
+        connectionString = _configuration[""];
+        DBManager.GetInstance.connectionString = connectionString;
+    }
+
+    [HttpGet]
+    public IactionResult Get()
+    {
+        try
+        {
+            var result = CategoriaProductoServicios.ObtenerTodo<CategoriaProducto>();
+            return ok(result);
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+}
