@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj": {}
+    "c:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj": {
+    "c:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj",
+        "projectUniqueName": "c:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj",
+        "projectPath": "c:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\Jose Luna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\obj\\",
+        "outputPath": "c:\\Users\\Jose Luna\\OneDrive\\Documentos\\GitHub\\pruebas-software-7-2023\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jose Luna\\AppData\\Roaming\\NuGet\\NuGet.Config"
