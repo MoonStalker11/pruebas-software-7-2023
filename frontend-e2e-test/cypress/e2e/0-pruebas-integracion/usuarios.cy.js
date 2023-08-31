@@ -39,4 +39,6 @@ describe("CRUD Usuarios", () => {//Titulo
 
         cy.get("#addUsuario").not("[disabled]").click();
     });
+
+    
 });
