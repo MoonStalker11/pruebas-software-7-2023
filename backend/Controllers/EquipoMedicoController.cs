@@ -1,20 +1,18 @@
 using backend.connection;
 using backend.entidades;
 using backend.servicios;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
 
-[EnableCors("DevelopmentCors")]
 [ApiController]
 [Route("api/[controller]")]
-public class UsuariosController : ControllerBase
+public class EquipoMedicoController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private readonly string? connectionString;
 
-    public UsuariosController(IConfiguration configuration)
+    public EquipoMedicoController(IConfiguration configuration)
     {
         _configuration = configuration;
         connectionString = _configuration["SqlConnectionString:DefaultConnection"];
@@ -22,12 +20,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpGet]
-    [Route("GetAllUsuarios")]
-    public IActionResult GetAllUsuarios()
+    [Route("GetAllEquipoMedico")]
+    public IActionResult GetAllEquipoMedico()
     {
         try
         {
-            var result = UsuariosServicios.ObtenerTodo<Usuarios>();
+            var result = EquipoMedicoServicios.ObtenerTodo<EquipoMedico>();
             return Ok(result);
         }
         catch (Exception ex)
@@ -38,12 +36,12 @@ public class UsuariosController : ControllerBase
 
 
     [HttpGet]
-    [Route("GetUsuariosById")]
-    public IActionResult GetUsuariosById([FromQuery] int id)
+    [Route("GetEquipoMedicoById")]
+    public IActionResult GetEquipoMedicoById([FromQuery] int id)
     {
         try
         {
-            var result = UsuariosServicios.ObtenerById<Usuarios>(id);
+            var result = EquipoMedicoServicios.ObtenerById<EquipoMedico>(id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -53,12 +51,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPost]
-    [Route("AddUsuario")]
-    public IActionResult AddUsuario(Usuarios usuarios)
+    [Route("AddEquipoMedico")]
+    public IActionResult AddEquipoMedico(EquipoMedico equipoMedico)
     {
         try
         {
-            var result = UsuariosServicios.InsertUsuario(usuarios);
+            var result = EquipoMedicoServicios.InsertEquipoMedico(equipoMedico);
             return Ok(result);
         }
         catch (Exception ex)
@@ -67,13 +65,13 @@ public class UsuariosController : ControllerBase
         }
     }
 
-     [HttpPut]
-    [Route("UpdateUsuario")]
-    public IActionResult UpdateUsuario(Usuarios usuarios)
+    [HttpPut]
+    [Route("UpdateEquipoMedico")]
+    public IActionResult UpdateEquipoMedico(EquipoMedico equipoMedico)
     {
         try
         {
-            var result = UsuariosServicios.UpdateUsuarios(usuarios);
+            var result = EquipoMedicoServicios.UpdateEquipoMedico(equipoMedico);
             return Ok(result);
         }
         catch (Exception ex)
@@ -83,12 +81,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("DeleteUsuario")]
-    public IActionResult DeleteUsuario([FromQuery]int id)
+    [Route("DeleteEquipoMedico")]
+    public IActionResult DeleteEquipoMedico([FromQuery]int id)
     {
         try
         {
-            var result = UsuariosServicios.DeleteUsuarios(id);
+            var result = EquipoMedicoServicios.DeleteEquipoMedico(id);
             return Ok(result);
         }
         catch (Exception ex)

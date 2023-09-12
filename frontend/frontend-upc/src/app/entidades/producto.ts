@@ -1,4 +1,4 @@
 export class Producto{
     public nombre: string = "";
-    public IdCategoria: string = "";
+    public IdCategoria: number = 1;
   }

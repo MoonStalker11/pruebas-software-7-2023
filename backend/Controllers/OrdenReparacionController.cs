@@ -1,20 +1,18 @@
 using backend.connection;
 using backend.entidades;
 using backend.servicios;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
 
-[EnableCors("DevelopmentCors")]
 [ApiController]
 [Route("api/[controller]")]
-public class UsuariosController : ControllerBase
+public class OrdenReparacionController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private readonly string? connectionString;
 
-    public UsuariosController(IConfiguration configuration)
+    public OrdenReparacionController(IConfiguration configuration)
     {
         _configuration = configuration;
         connectionString = _configuration["SqlConnectionString:DefaultConnection"];
@@ -22,12 +20,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpGet]
-    [Route("GetAllUsuarios")]
-    public IActionResult GetAllUsuarios()
+    [Route("GetAllOrdenReparacion")]
+    public IActionResult GetAllOrdenReparacion()
     {
         try
         {
-            var result = UsuariosServicios.ObtenerTodo<Usuarios>();
+            var result = OrdenReparacionServicios.ObtenerTodo<OrdenReparacion>();
             return Ok(result);
         }
         catch (Exception ex)
@@ -38,12 +36,12 @@ public class UsuariosController : ControllerBase
 
 
     [HttpGet]
-    [Route("GetUsuariosById")]
-    public IActionResult GetUsuariosById([FromQuery] int id)
+    [Route("GetOrdenReparacionById")]
+    public IActionResult GetOrdenReparacionById([FromQuery] int id)
     {
         try
         {
-            var result = UsuariosServicios.ObtenerById<Usuarios>(id);
+            var result = OrdenReparacionServicios.ObtenerById<OrdenReparacion>(id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -53,12 +51,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPost]
-    [Route("AddUsuario")]
-    public IActionResult AddUsuario(Usuarios usuarios)
+    [Route("AddOrdenReparacion")]
+    public IActionResult AddOrdenReparacion(OrdenReparacion ordenReparacion)
     {
         try
         {
-            var result = UsuariosServicios.InsertUsuario(usuarios);
+            var result = OrdenReparacionServicios.InsertOrdenReparacion(ordenReparacion);
             return Ok(result);
         }
         catch (Exception ex)
@@ -67,13 +65,13 @@ public class UsuariosController : ControllerBase
         }
     }
 
-     [HttpPut]
-    [Route("UpdateUsuario")]
-    public IActionResult UpdateUsuario(Usuarios usuarios)
+    [HttpPut]
+    [Route("UpdateOrdenReparacion")]
+    public IActionResult UpdateOrdenReparacion(OrdenReparacion ordenReparacion)
     {
         try
         {
-            var result = UsuariosServicios.UpdateUsuarios(usuarios);
+            var result = OrdenReparacionServicios.UpdateOrdenReparacion(ordenReparacion);
             return Ok(result);
         }
         catch (Exception ex)
@@ -83,12 +81,12 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("DeleteUsuario")]
-    public IActionResult DeleteUsuario([FromQuery]int id)
+    [Route("DeleteOrdenReparacion")]
+    public IActionResult DeleteOrdenReparacion([FromQuery]int id)
     {
         try
         {
-            var result = UsuariosServicios.DeleteUsuarios(id);
+            var result = OrdenReparacionServicios.DeleteOrdenReparacion(id);
             return Ok(result);
         }
         catch (Exception ex)

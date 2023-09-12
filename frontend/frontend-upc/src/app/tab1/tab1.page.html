@@ -19,12 +19,20 @@
   <ion-input id="password" type="text" placeholder="Ingrese la Contraseña" [(ngModel)]="password"></ion-input>
   <ion-button id="addUsuario" (click)="addUsuario()">Agregar Usuario</ion-button>
 </ion-item>
-<br>
-<ion-list>
-  <ion-item *ngFor="let item of listaUsuarios">
-    <b>nombre</b>:{{item.nombreCompleto}}; <b>userName</b>:{{item.userName}}; <b>pass</b>:{{item.password}}
-  </ion-item>
-</ion-list>
 
+<br>
+<ion-grid class="custom-table">
+  <ion-row class="header-row">
+    <ion-col><b>Nombre Completo</b></ion-col>
+    <ion-col><b>Nombre Usuario</b></ion-col>
+    <ion-col><b>password</b></ion-col>
+  </ion-row>
+  
+  <ion-row class="data-row" *ngFor="let item of listaUsuarios">
+    <ion-col>{{ item.nombreCompleto }}</ion-col>
+    <ion-col>{{ item.userName }}</ion-col>
+    <ion-col>{{ item.password }}</ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>
